@@ -17,7 +17,7 @@ struct DoublyLinkedNode
 };
 
 template <class T>
-class DoublyLinkedList :  List<T> {
+class DoublyLinkedList : public List<T> {
 private:
 	DoublyLinkedNode<T>* head;
 	DoublyLinkedNode<T>* tail;
@@ -241,6 +241,18 @@ public:
 	}
 };
 
-int main() {
-	return 0;
+void printList(List<int>& L) {
+	for (int i = 0; i < L.size(); i++) {
+		cout << L[i] << ' ';
+	}
 }
+
+/*
+int main()
+{
+	DoublyLinkedList<int>* L = new DoublyLinkedList<int>;
+	L->push_back(5);
+	L->push_back(6);
+	L->insert(10, 1);
+	printList(*L);
+}*/
