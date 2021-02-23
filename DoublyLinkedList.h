@@ -185,9 +185,18 @@ public:
 			throw std::invalid_argument("Index is invalid");
 		}
 
-		DoublyLinkedNode<T>* current = this->head;
-		for (int i = 0; i < index; i++) {
-			current = current->next;
+		DoublyLinkedNode<T>* current = NULL;
+		if (index < this->length / 2) {
+			current = this->head;
+			for (int i = 0; i < index; i++) {
+				current = current->next;
+			}
+		}
+		else {
+			current = this->tail;
+			for (int i = this->length - 1; i > index; i--) {
+				current = current->previous;
+			}
 		}
 		return current->value;
 	}
@@ -206,9 +215,18 @@ public:
 			throw std::invalid_argument("Index is invalid");
 		}
 
-		DoublyLinkedNode<T>* current = this->head;
-		for (int i = 0; i < index; i++) {
-			current = current->next;
+		DoublyLinkedNode<T>* current = NULL;
+		if (index < this->length / 2) {
+			current = this->head;
+			for (int i = 0; i < index; i++) {
+				current = current->next;
+			}
+		}
+		else {
+			current = this->tail;
+			for (int i = this->length - 1; i > index; i--) {
+				current = current->previous;
+			}
 		}
 		return current->value;
 	}
